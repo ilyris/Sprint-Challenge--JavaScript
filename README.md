@@ -30,13 +30,50 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Describe the biggest difference between `.forEach` & `.map`.
 
+I believe the biggest differences between the map array method and the forEach array method is that the map method runs some kind of computation on the array elements we pass
+into our call back function then stores them into a new array. Which results in a new array so we do NOT mutate the origional array that we are mapping through.
+
+
 2. What is the difference between a function and a method?
+A function is a block of code that can be invoked time and time again. As long as the current scope we are in has a reference to the function. A method is a function that runs on an object. Usually an Array.
 
 3. What is closure?
 
+Closure happens when a function needs to use some variable from its parent scope. When the function accesses the parents variable, it can make changes to the variables data, but does not delete the changes. The best example I can think of is using a counter like we used in the assignments. When we use closure we can update the counter in the parent function scope allowing the variable to increment and retain that new information it has gained. If we didn't use closures every time we would use the function to increment the variable we would essentially create the variable and set it to 0, then increment it by how ever much, but once that function is done running that variable would either be "deleted" or assigned to 0 again. If we put the counter variable in the upper scope, we can call the function to increment the variable, while the parent functions scope will retain that new information we passed to it. 
+
+
 4. Describe the four rules of the 'this' keyword.
+The four rules of the THIS keyword are something like this..
+
+1) Is the window binding. This means if we console.log(this) in the global execution context we will be refering to the window object.. This is because the THIS keyword refers to
+whatever it is in context to.
+
+2) Implicit binding
+This is when we are inside an object, for example if we made a car object inside out global object and we made a method called Start() if we logged THIS in the start method, 
+the THIS keyword would return the car object. This is because the THIS keyword is in context to the CAR object.
+
+3) New Binding.
+This one is a little harder for me to explain, but the best way I can get this accross is thinking about creating a class.
+Once you create a class you set up your keys like is "this.name = name" While we have a constructor(name) function with name as a parameter.
+
+Now when we create a new class object using the keyword NEW we can pass in a string which will be whatever that objects Name is. for example.
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+const person1 = new Person("Dylan");
+
+Now Dylan will = this.name, and if we console.logged this in that Person object, and used person1 to call it, the THIS keyword would refer to person1.
+
+4) Explicit Binding.
+explicit binding is binding this to an argument we pass in, we can use this keyword without using the keyword this by using the call, bind, and apply method. 
+
 
 5. Why do we need super() in an extended class?
+
+Super() allows us to grab the keys from the constructor function so we can have access to the keys in our newly create class when extended classes.
 
 ## Project Set up
 
